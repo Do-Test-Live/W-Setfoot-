@@ -1,3 +1,6 @@
+<?php
+include ("config/dbconfig.php");
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -44,14 +47,14 @@
         <div class="tm-header-bottomarea">
             <div class="container">
                 <div class="tm-header-inner">
-                    <a href="index.html" class="tm-header-logo">
+                    <a href="index.php" class="tm-header-logo">
                         <img src="assets/images/logo.png" alt="malic" style="height: 80px;">
                     </a>
                     <nav class="tm-header-nav">
                         <ul>
-                            <li><a href="accommodation.html">Accommodation</a></li>
-                            <li><a href="#">Learn More</a></li>
-                            <li><a href="aboutus.html">About Us</a></li>
+                            <li><a href="accommodation.php">Accommodation</a></li>
+                            <li><a href="#question">Learn More</a></li>
+                            <li><a href="aboutus.php">About Us</a></li>
                         </ul>
                     </nav>
                     <div class="tm-mobilenav"></div>
@@ -215,6 +218,14 @@
                 <!--// Single Service -->
 
             </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-xl-7 col-lg-8 col-md-9 col-12">
+                    <div class="tm-sectiontitle text-center">
+                        <a href="#question"
+                           class="tm-button">Learn more</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!--// Service Area -->
@@ -229,20 +240,20 @@
                         <h3>Why should I book through Setfoot?</h3>
                         <p>Guaranteed sustainable hotel: </p>
                         <ul class="stylish-list-color">
-                            <li><i class="ion-android-checkmark-circle"></i><a href="#" style="color: #777;">We do the
+                            <li><i class="ion-android-checkmark-circle"></i><a href="#question" style="color: #777;">We do the
                                 homework for you to curate the list of certified accommodations that truly commits to
                                 sustainability.</a>
                             </li>
                         </ul>
                         <p>Amplified impact: </p>
                         <ul class="stylish-list-color">
-                            <li><i class="ion-android-checkmark-circle"></i><a href="#" style="color: #777;">We take an
+                            <li><i class="ion-android-checkmark-circle"></i><a href="#question" style="color: #777;">We take an
                                 extra mile for you to purchase carbon offset credits once we book through setfoot.</a>
                             </li>
                         </ul>
                         <p>No commission: </p>
                         <ul class="stylish-list-color">
-                            <li><i class="ion-android-checkmark-circle"></i><a href="#" style="color: #777;">We offer
+                            <li><i class="ion-android-checkmark-circle"></i><a href="#question" style="color: #777;">We offer
                                 the best deals and do not charge any booking commission.</a>
                             </li>
                         </ul>
@@ -270,373 +281,62 @@
                 </div>
             </div>
             <div class="row justify-content-end mt-30-reverse mt-3">
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>Barceló Occidental At Xcaret Destination</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 230
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/x6ru8ML85J7KGXYU8" target="_blank"
-                                                style="color: #777;">Carretera Federal Chetumal Puerto Juarez Km 282 .
-                                        77710 Playa del Carmen Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 8.2
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 1051
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 5
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Surrounded by tropical beauty, the Occidental at Xcaret Destination all inclusive
-                                    resort on the Riviera Maya captivates guests with its spectacular gardens, 2 Mayan
-                                    ruins, and a unique cove where you can relax sunbathing or perhaps swimming with
-                                    tropical fish.
-                                </li>
-                            </ul>
-                            <a href="https://www.booking.com/hotel/mx/occidental-at-xcaret-destination.html"
-                               target="_blank" class="tm-button">Explore more</a>
+            <?php
+            $hotel_data = $con->query("SELECT * FROM `hotel` limit 3");
+            if ($hotel_data){
+                while ($row = mysqli_fetch_assoc($hotel_data)){
+                    ?>
+                    <!-- Single Feature -->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
+                        <div class="tm-feature text-center tm-scrollanim">
+                            <div class="tm-feature-content">
+                                <h6><?php echo $row['name'];?></h6>
+                                <ul class="stylish-list-color">
+                                    <li><i class="ion-android-checkmark-circle"></i>
+                                        Starting Price: <?php echo $row['startingprice'];?>
+                                    </li>
+                                    <li><i class="ion-android-checkmark-circle"></i>
+                                        Certification:
+                                    </li>
+                                    <li><i class="ion-android-checkmark-circle"></i>
+                                        Address: <a href="<?php echo $row['addresslink'];?>" target="_blank"
+                                                    style="color: #777;"><?php echo $row['address'];?></a>
+                                    </li>
+                                    <li><i class="ion-android-checkmark-circle"></i>
+                                        Rating: <?php echo $row['rating'];?>
+                                    </li>
+                                    <li><i class="ion-android-checkmark-circle"></i>
+                                        Excellent
+                                    </li>
+                                    <li><i class="ion-android-checkmark-circle"></i>
+                                        Numbers of reviews: <?php echo $row['numberofreviews'];?>
+                                    </li>
+                                    <li><i class="ion-android-checkmark-circle"></i>
+                                        Star rating: <?php echo $row['numberofreviews'];?>
+                                    </li>
+                                    <li><i class="ion-android-checkmark-circle"></i>
+                                        <?php echo $row['description'];?>
+                                    </li>
+                                </ul>
+                                <a href="<?php echo $row['agencywebsite'];?>"
+                                   target="_blank" class="tm-button">Explore more</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--// Single Feature -->
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>Club Med Cancún Yucatán</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 173
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/4mWATL2b1FbTsLUa9" target="_blank"
-                                                style="color: #777;">Punta Nizuc, 77500, Cancun, Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 8.8
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 350
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 4
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Perfect family Resort with a dash of Mayan culture. Rediscover a fully-redesigned
-                                    Club Med Cancún, the ultimate all-inclusive family resort located at the tip of the
-                                    iconic Riviera Maya.
-                                </li>
-                            </ul>
-                            <a href="https://ar.trivago.com/en-145/oar/hotel-club-med-canc%C3%BAn-cancun?tc=22&search=100-2983200"
-                               target="_blank" class="tm-button">Explore more</a>
-                        </div>
-                    </div>
-                </div>
-                <!--// Single Feature -->
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>Club Med Ixtapa Pacific</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 136
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/MQgW3haoGoGrbfXL9" target="_blank"
-                                                style="color: #777;">Playa Quieta, 40880 Zihuatanejo, Gro., Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 8.6
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 380
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 4
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Find fun among the terracotta roofs and palm trees at Club Med Ixtapa Pacific. This
-                                    all-inclusive family resort in Ixtapa, Mexico, is a Tripadvisor Travelers’ Choice
-                                    award winner and full of out-of-the-ordinary experiences.
-                                </li>
-                            </ul>
-                            <a href="https://ar.trivago.com/en-145/oar/hotel-club-med-ixtapa-pacific-mexico?tc=22&search=100-1185838"
-                               target="_blank" class="tm-button">Explore more</a>
-                        </div>
-                    </div>
-                </div>
-                <!--// Single Feature -->
-            </div>
-            <div class="row justify-content-end mt-30-reverse mt-3">
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>ATELIER Playa Mujeres</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 492
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/TMxzYphaL4uYpuBW6" target="_blank"
-                                                style="color: #777;">Prolongación Bonampak S/N Mz 1 Lote RTH4, SM3, Complejo Playa Mujeres, Zona Continental, 77400 Q.R., Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 9.3
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 639
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 5
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    All-Inclusive 5+ Star Resort for Adults offering a fantastic concept inspired by Mexican Art and Design. Its innovative atmosphere blends harmoniously with the mesmerizing natural landscape of Playa Mujeres, set between the crystalline waters of the Caribbean and a magnificent golf course.
-                                </li>
-                            </ul>
-                            <a href="https://www.booking.com/hotel/mx/atelier-playa-mujeres-all-inclusive-resort.html"
-                               target="_blank" class="tm-button">Explore more</a>
-                        </div>
-                    </div>
-                </div>
-                <!--// Single Feature -->
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>Barceló Allegro Cozumel Resort</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 155
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/xMpeX5iiLJKcCUmi9" target="_blank"
-                                                style="color: #777;">San Francisco-Palancar, Carr. Costera Sur Km.16.5, 77600 San Miguel de Cozumel, Q.R., Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 7.8
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 645
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 4
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Designed to offer comfortable accommodations at the magnificent San Francisco beach, one of the world’s most beautiful beaches on the island of Cozumel
-                                </li>
-                            </ul>
-                            <a href="https://www.booking.com/hotel/mx/allegro-cozumel.html"
-                               target="_blank" class="tm-button">Explore more</a>
-                        </div>
-                    </div>
-                </div>
-                <!--// Single Feature -->
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>Barceló Allegro Playacar Resort</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 174
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/ArBJUEwtEsyY5Crw9" target="_blank"
-                                                style="color: #777;">Desarrollo, P.º Xaman - Ha 7, Playacar, 77710 Playa del Carmen, Q.R., Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 7.6
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 839
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 4
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Three colors: turquoise, white and jungle green dominate the idyllic beach on which the Allegro Playacar (4 stars) Hotel sits. One of the best vacation hotels on Playa del Carmen.
-                                </li>
-                            </ul>
-                            <a href="https://www.booking.com/hotel/mx/allegro-playacar.html"
-                               target="_blank" class="tm-button">Explore more</a>
-                        </div>
-                    </div>
-                </div>
-                <!--// Single Feature -->
+                    <!--// Single Feature -->
+                    <?php
+                }
+            }
+            ?>
 
             </div>
-            <div class="row justify-content-end mt-30-reverse mt-3">
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>Barceló Huatulco</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 273
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/Fnc8s3SsyEPZdMPt9" target="_blank"
-                                                style="color: #777;">Bahías de Huatulco, Blvd. Benito Juárez, 70989 Oax., Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 8.2
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 5.6
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 4
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    All-inclusive hotel located in Tangolunda Bay, the largest of Huatulco's 9 bays. Enjoy being just a few steps from the sea with unbeatable views of the bay or the hotel’s spectacular gardens.
-                                </li>
-                            </ul>
-                            <a href="https://www.booking.com/hotel/mx/barcelo-huatulco-beach.html"
-                               target="_blank" class="tm-button">Explore more</a>
-                        </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-xl-7 col-lg-8 col-md-9 col-12">
+                    <div class="tm-sectiontitle text-center">
+                        <a href="accommodation.php"
+                           target="_blank" class="tm-button">Explore more</a>
                     </div>
                 </div>
-                <!--// Single Feature -->
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>Barceló Ixtapa</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 237
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/HnoUaNFtF6Fb4M9w9" target="_blank"
-                                                style="color: #777;">Blvd. Paseo Ixtapa, Zona hotelera 1, 40880 Zihuatanejo, Gro., Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 8.5
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 431
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 5
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Located in the heart of Ixtapa, on the beachfront of El Palmar, it is one of the best destinations that Mexico offers to its visitors. It is also ideally located for excursions to other places near Zihuatanejo.
-                                </li>
-                            </ul>
-                            <a href="https://www.booking.com/hotel/mx/barcelo-ixtapa-beach.html"
-                               target="_blank" class="tm-button">Explore more</a>
-                        </div>
-                    </div>
-                </div>
-                <!--// Single Feature -->
-
-                <!-- Single Feature -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
-                    <div class="tm-feature text-center tm-scrollanim">
-                        <div class="tm-feature-content">
-                            <h6>Barceló Karmina Palace</h6>
-                            <ul class="stylish-list-color">
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Starting Price: 153
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Certification:
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Address: <a href="https://goo.gl/maps/2Y2FeimmtuJFYcMN6" target="_blank"
-                                                style="color: #777;">Av. Vista Hermosa 13, Península de Santiago, 28867 Manzanillo, Col., Mexico</a>
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Rating: 8.4
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Excellent
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Numbers of reviews: 870
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    Star rating: 5
-                                </li>
-                                <li><i class="ion-android-checkmark-circle"></i>
-                                    A distinguished 5-star hotel that boasts the 4-diamond AAA recognition and is located right along the beach in Manzanillo. Its spectacular architecture, inspired by the Mayan temples, coupled with the tropical gardens and a private beach, make this hotel a paradise of relaxation and entertainment for the whole family.
-                                </li>
-                            </ul>
-                            <a href="https://www.booking.com/hotel/mx/barcelo-karmina-palace.html"
-                               target="_blank" class="tm-button">Explore more</a>
-                        </div>
-                    </div>
-                </div>
-                <!--// Single Feature -->
-
-
-
             </div>
         </div>
     </div>
@@ -644,7 +344,7 @@
 
 
     <!-- Question Area -->
-    <div class="tm-section tm-testimonial-area tm-padding-section-bottom bg-white bg-pattern-transparent">
+    <div class="tm-section tm-testimonial-area tm-padding-section-bottom bg-white bg-pattern-transparent" id="question">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-8 col-md-9 col-12">
@@ -1519,8 +1219,8 @@
                 <!-- Single Widget -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="single-widget widget-info">
-                        <a class="widget-info-logo" href="index.html"><img src="assets/images/flogo.png"
-                                                                           alt="white logo" style="height: 100px;"></a>
+                        <a class="widget-info-logo" href="index.php"><img src="assets/images/flogo.png"
+                                                                          alt="white logo" style="height: 100px;"></a>
                         <p>Setfoot mobilises collective climate action to revolutionaries travel innovation</p>
                         <!--<ul>
                             <li><a href="#"><i class="ion-social-facebook"></i></a></li>
@@ -1554,8 +1254,8 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="single-widget widget-twitterfeed">
                         <h6 class="widget-title">Supported By</h6>
-                        <a class="widget-info-logo" href="index.html"><img src="assets/images/HKSTP-logo.png"
-                                                                           alt="white logo" style="height: 80px;"></a>
+                        <a class="widget-info-logo" href="index.php"><img src="assets/images/HKSTP-logo.png"
+                                                                          alt="white logo" style="height: 80px;"></a>
                     </div>
                 </div>
                 <!--// Single Widget -->

@@ -47,14 +47,14 @@
             <div class="tm-header-bottomarea">
                 <div class="container">
                     <div class="tm-header-inner">
-                        <a href="index.html" class="tm-header-logo">
+                        <a href="index.php" class="tm-header-logo">
                             <img src="assets/images/logo.png" alt="malic" style="height: 80px;">
                         </a>
                         <nav class="tm-header-nav">
                             <ul>
-                                <li><a href="#">Accommodation</a></li>
-                                <li><a href="#">Learn More</a></li>
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="accommodation.php">Accommodation</a></li>
+                                <li><a href="index.php#question">Learn More</a></li>
+                                <li><a href="aboutus.php">About Us</a></li>
                             </ul>
                         </nav>
                         <div class="tm-mobilenav"></div>
@@ -178,8 +178,8 @@
                         <!-- Single Widget -->
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="single-widget widget-info">
-                                <a class="widget-info-logo" href="index.html"><img src="assets/images/flogo.png"
-                                                                                   alt="white logo" style="height: 100px;"></a>
+                                <a class="widget-info-logo" href="index.php"><img src="assets/images/flogo.png"
+                                                                                  alt="white logo" style="height: 100px;"></a>
                                 <p>Setfoot mobilises collective climate action to revolutionaries travel innovation</p>
                                 <!--<ul>
                                     <li><a href="#"><i class="ion-social-facebook"></i></a></li>
@@ -213,8 +213,8 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="single-widget widget-twitterfeed">
                                 <h6 class="widget-title">Supported By</h6>
-                                <a class="widget-info-logo" href="index.html"><img src="assets/images/HKSTP-logo.png"
-                                                                                   alt="white logo" style="height: 80px;"></a>
+                                <a class="widget-info-logo" href="index.php"><img src="assets/images/HKSTP-logo.png"
+                                                                                  alt="white logo" style="height: 80px;"></a>
                             </div>
                         </div>
                         <!--// Single Widget -->

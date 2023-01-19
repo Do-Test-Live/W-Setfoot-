@@ -1431,6 +1431,7 @@ input[type=radio]:checked ~ label::before {
 }
 
 .tm-button, a.tm-button, button.tm-button {
+    bottom: 0;
     display: inline-block;
     height: 50px;
     min-width: 150px;
@@ -1653,7 +1654,7 @@ input[type=radio]:checked ~ label::before {
     box-shadow: 0 2px 10px rgba(34, 34, 34, .15);
     padding: 50px 30px 25px 30px;
     background: #fff;
-    height: 713px;
+    height: 100%;
 }
 
 .tm-feature-area {
@@ -1671,8 +1672,10 @@ input[type=radio]:checked ~ label::before {
 
 .tm-feature-content h6 {
     font-family: Hind, sans-serif;
-    color: #34a5b3;
-    font-weight: 700
+    color: #ffffff;
+    font-weight: 700;
+    background-color: #13788a;
+    padding: 10px;
 }
 
 .tm-feature-image {
