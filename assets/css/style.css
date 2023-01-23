@@ -1431,7 +1431,7 @@ input[type=radio]:checked ~ label::before {
 }
 
 .tm-button, a.tm-button, button.tm-button {
-    bottom: 0;
+    bottom: 70px;
     display: inline-block;
     height: 50px;
     min-width: 150px;
@@ -3210,7 +3210,7 @@ input[type=radio]:checked ~ label::before {
     height: 100%;
     width: 100%;
     background: #000;
-    opacity: .55;
+    opacity: .25;
     z-index: -1
 }
 

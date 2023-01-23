@@ -67,7 +67,7 @@ include ("config/dbconfig.php");
 
     <!-- Heroslider Area -->
     <div class="row">
-        <div class="col-5">
+        <div class="col-lg-5 col-sm-12">
             <div class="tm-heroslider-area bg-grey">
 
                 <div class="tm-heroslider-slider">
@@ -130,13 +130,13 @@ include ("config/dbconfig.php");
 
             </div>
         </div>
-        <div class="col-7 my-auto">
+        <div class="col-lg-7 col-sm-12 my-auto p-5">
             <div class="tm-heroslider-contentwrapper">
                 <div class="tm-heroslider-content">
                     <h1>Enjoy a guilty-free, sustainable trip. <br>0 commission fee.</h1>
                     <p>Setfoot is a sustainable travel platform enabling you to effortlessly travel with the lowest
                         environmental impact, starting from your accommodations. </p>
-                    <a href="#" class="tm-button">Find certified sustainable hotels now</a>
+                    <a href="#" class="tm-button" style="margin-top: 70px;">Find certified sustainable hotels now</a>
 
                 </div>
             </div>
@@ -164,7 +164,6 @@ include ("config/dbconfig.php");
                     <div class="tm-service text-center tm-scrollanim">
                         <div class="tm-service-inner">
                             <div class="tm-service-frontside" data-bgimage="assets/images/service-image-1.jpg">
-                                <h6>Green Globe</h6>
                             </div>
                             <div class="tm-service-backside">
                                 <h6><a href="service-details.html">Green Globe</a></h6>
@@ -183,7 +182,6 @@ include ("config/dbconfig.php");
                     <div class="tm-service text-center tm-scrollanim">
                         <div class="tm-service-inner">
                             <div class="tm-service-frontside" data-bgimage="assets/images/service-image-2.jpg">
-                                <h6>Earth Check</h6>
                             </div>
                             <div class="tm-service-backside">
                                 <h6><a href="service-details.html">Earth Check</a></h6>
@@ -202,7 +200,6 @@ include ("config/dbconfig.php");
                     <div class="tm-service text-center tm-scrollanim">
                         <div class="tm-service-inner">
                             <div class="tm-service-frontside" data-bgimage="assets/images/service-image-3.jpg">
-                                <h6>Preferred by Nature</h6>
                             </div>
                             <div class="tm-service-backside">
                                 <h6><a href="service-details.html">Preferred by Nature</a></h6>
@@ -221,7 +218,7 @@ include ("config/dbconfig.php");
             <div class="row justify-content-center mt-5">
                 <div class="col-xl-7 col-lg-8 col-md-9 col-12">
                     <div class="tm-sectiontitle text-center">
-                        <a href="#question"
+                        <a href="#question" style="bottom: 0 !important"
                            class="tm-button">Learn more</a>
                     </div>
                 </div>
@@ -287,7 +284,7 @@ include ("config/dbconfig.php");
                 while ($row = mysqli_fetch_assoc($hotel_data)){
                     ?>
                     <!-- Single Feature -->
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30 text-center">
                         <div class="tm-feature text-center tm-scrollanim">
                             <div class="tm-feature-content">
                                 <h6><?php echo $row['name'];?></h6>
@@ -318,10 +315,10 @@ include ("config/dbconfig.php");
                                         <?php echo $row['description'];?>
                                     </li>
                                 </ul>
-                                <a href="<?php echo $row['agencywebsite'];?>"
-                                   target="_blank" class="tm-button">Explore more</a>
                             </div>
                         </div>
+                        <a href="<?php echo $row['agencywebsite'];?>"
+                           target="_blank" class="tm-button">Explore more</a>
                     </div>
                     <!--// Single Feature -->
                     <?php
@@ -334,7 +331,7 @@ include ("config/dbconfig.php");
                 <div class="col-xl-7 col-lg-8 col-md-9 col-12">
                     <div class="tm-sectiontitle text-center">
                         <a href="accommodation.php"
-                           target="_blank" class="tm-button">Explore more</a>
+                           target="_blank" class="tm-button mt-5">Explore more</a>
                     </div>
                 </div>
             </div>
@@ -479,7 +476,7 @@ include ("config/dbconfig.php");
                                     <textarea cols="30" rows="5" id="contact-form-message" placeholder="Write your message" name="message"></textarea>
                                 </div>
                                 <div class="tm-form-field">
-                                    <button type="submit" class="tm-button tm-button-block">Send
+                                    <button type="submit" class="tm-button tm-button-block" style="margin-top: 50px;">Send
                                         Message</button>
                                 </div>
                             </div>
@@ -1183,10 +1180,11 @@ include ("config/dbconfig.php");
                     <h4 class="tm-newsletter-title">Subscribe Newsletter</h4>
                 </div>
                 <div class="col-xl-6 col-lg-8 col-md-7 col-12">
-                    <form id="tm-mailchimp-form" class="tm-newsletter-form">
+                    <!--<form id="tm-mailchimp-form" class="tm-newsletter-form">
                         <input id="mc-email" type="email" placeholder="Email address...">
-                        <button id="mc-submit" type="submit" class="tm-button">Sign Up</button>
-                    </form>
+                        <button id="mc-submit" type="submit" class="tm-button" style="margin-top: 80px">Sign Up</button>
+                    </form>-->
+
                     <!-- Mailchimp Alerts -->
                     <div class="tm-mailchimp-alerts">
                         <div class="tm-mailchimp-submitting"></div>

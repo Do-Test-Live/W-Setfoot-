@@ -97,7 +97,7 @@ include ("config/dbconfig.php");
                                     while ($row = mysqli_fetch_assoc($hotel_data)){
                                         ?>
                                         <!-- Single Feature -->
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30 text-center">
                                             <div class="tm-feature text-center tm-scrollanim">
                                                 <div class="tm-feature-content">
                                                     <h6><?php echo $row['name'];?></h6>
@@ -128,10 +128,10 @@ include ("config/dbconfig.php");
                                                             <?php echo $row['description'];?>
                                                         </li>
                                                     </ul>
-                                                    <a href="<?php echo $row['agencywebsite'];?>"
-                                                       target="_blank" class="tm-button">Explore more</a>
                                                 </div>
                                             </div>
+                                            <a href="<?php echo $row['agencywebsite'];?>"
+                                               target="_blank" class="tm-button">Explore more</a>
                                         </div>
                                         <!--// Single Feature -->
                                         <?php
