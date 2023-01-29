@@ -18,6 +18,7 @@ include ("config/dbconfig.php");
     <link rel="stylesheet" href="assets/css/vendors/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- endinject -->
+    <link rel="stylesheet" href="assets/css/wow.css"/>
 </head>
 
 <body>
@@ -48,7 +49,7 @@ include ("config/dbconfig.php");
             <div class="container">
                 <div class="tm-header-inner">
                     <a href="index.php" class="tm-header-logo">
-                        <img src="assets/images/logo.png" alt="malic" style="height: 80px;">
+                        <img src="assets/images/logo.png" alt="malic" style="height: 80px; animation-delay: 2s;" class="wow bounceInUp">
                     </a>
                     <nav class="tm-header-nav">
                         <ul>
@@ -132,7 +133,7 @@ include ("config/dbconfig.php");
         </div>
         <div class="col-lg-7 col-sm-12 my-auto p-5">
             <div class="tm-heroslider-contentwrapper">
-                <div class="tm-heroslider-content">
+                <div class="tm-heroslider-content animate__animated animate__fadeInRight wow">
                     <h1>Enjoy a guilty-free, sustainable trip. <br>0 commission fee.</h1>
                     <p>Setfoot is a sustainable travel platform enabling you to effortlessly travel with the lowest
                         environmental impact, starting from your accommodations. </p>
@@ -151,7 +152,7 @@ include ("config/dbconfig.php");
     <!-- Service Area -->
     <div id="tm-service-area" class="tm-section tm-service-area bg-white mt-5 tm-padding-section-bottom">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center wow animate__slideInRight animate__animated" data-wow-delay="5s">
                 <div class="col-xl-7 col-lg-8 col-md-9 col-12">
                     <div class="tm-sectiontitle text-center">
                         <h2>Leading sustainable travel platform with 100+ highly curated certified hotel</h2>
@@ -233,7 +234,7 @@ include ("config/dbconfig.php");
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-12 order-2 order-lg-1">
-                    <div class="tm-about-content tm-scrollanim">
+                    <div class="tm-about-content tm-scrollanim animate__animated animate__fadeInRight wow">
                         <h3>Why should I book through Setfoot?</h3>
                         <p>Guaranteed sustainable hotel: </p>
                         <ul class="stylish-list-color">
@@ -1262,7 +1263,7 @@ include ("config/dbconfig.php");
         </div>
     </div>
 
-    <div class="tm-footer-bottomarea bg-dark">
+    <div class="tm-footer-bottomarea bg-dark wow bounceInUp">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-7">
@@ -1271,7 +1272,7 @@ include ("config/dbconfig.php");
                 </div>
                 <div class="col-md-5">
                     <div class="tm-footer-payment">
-                        <img src="assets/images/payment-methods.png" alt="payment methods">
+                        <img src="assets/images/payment-methods.png" alt="payment methods" style="max-height: 30px !important;">
                     </div>
                 </div>
             </div>
@@ -1290,6 +1291,11 @@ include ("config/dbconfig.php");
 <script src="assets/js/vendors/plugins.min.js"></script>
 <script src="assets/js/main.js"></script>
 <!-- endinject -->
+<script src="assets/js/wow.js" integrity="sha512-Rd5Gf5A6chsunOJte+gKWyECMqkG8MgBYD1u80LOOJBfl6ka9CtatRrD4P0P5Q5V/z/ecvOCSYC8tLoWNrCpPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    new WOW().init();
+</script>
+
 </body>
 
 
